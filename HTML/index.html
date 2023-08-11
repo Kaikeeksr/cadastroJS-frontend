@@ -12,7 +12,18 @@
         <div>
           <input type="text" id="name" placeholder="Nome" />
           <input type="text" id="section" placeholder="Setor" />
-          <input type="text" id="payment" placeholder="Pagamento" />
+          <select name="Setor" id="setor1">
+            <option value="Design">Design</option>
+            <option value="Vendas">Vendas</option>
+          </select>
+          <input type="number" min="0" id="payment" placeholder="Pagamento" />
+          <!-- <input
+            type="text"
+            id="cpf"
+            placeholder="000.000.000-00"
+            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+            id="cpf"
+          /> -->
         </div>
         <input type="submit" id="submitButton" />
       </form>
