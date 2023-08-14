@@ -1,46 +1,44 @@
-.container {
-  margin: 0 auto;
-  margin-top: 100px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  max-width: 500px;
-  max-height: 300px;
-  transition: all 0.5s ease-in-out;
+body {
+  font-family: "Archivo", Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: #262626;
 }
-
-.container:hover {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+header {
+  background: #111;
+  color: #eee;
+  padding: 1rem;
+  text-align: center;
+}
+.container {
+  margin: auto;
+  width: 500px;
+  overflow: auto;
+  padding: 3rem 2rem;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  padding: 2rem;
+  background: #f4f4f4;
+  border-radius: 10px;
 }
-select {
-  width: 80%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
+
+form label {
   display: block;
-  margin-left: 3%;
-  margin-right: 3%;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 input {
-  width: 80%;
+  width: 96%;
+  padding: 8px;
   margin-bottom: 10px;
-  padding: 10px;
-  border: none;
   border-radius: 5px;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-  display: block;
-  margin-left: 3%;
-  margin-right: 3%;
+  border: 1px solid black;
 }
 
 input:hover {
@@ -48,42 +46,17 @@ input:hover {
 }
 
 input[type="submit"] {
-  background-color: #000;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  background: #262626;
   color: #fff;
-  border: none;
-  cursor: pointer;
   border-radius: 5px;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-  display: block;
+  margin: 5px 0;
 }
-
-.container h1 {
-  text-align: center;
-  margin-top: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-.container h1:hover {
-  color: #000;
-  transition: all 0.5s ease-in-out;
-}
-
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-  }
-
-  form {
-    flex-direction: row;
-  }
-
-  input {
-    width: 50%;
-    margin-bottom: 10px;
-  }
-
-  input[type="submit"] {
-    margin-top: 10px;
-  }
+.error {
+  background: #f4f4f4;
+  color: orangered;
+  margin: auto;
 }
