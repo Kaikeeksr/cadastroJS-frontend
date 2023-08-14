@@ -7,16 +7,27 @@
     <link rel="stylesheet" href="../CSS/style.css" />
   </head>
   <body>
+    <header>
+      <h1>Cadastro</h1>
+    </header>
+
     <section class="container">
       <form id="my-form">
         <div>
           <input type="text" id="name" placeholder="Nome" />
+          <input
+            type="text"
+            id="cpf"
+            autocomplete="off"
+            maxlength="14"
+            placeholder="CPF"
+          />
+          <input type="number" min="0" id="payment" placeholder="Pagamento" />
           <select name="Setor" id="section">
-            <option value=''>-</option>
+            <option value="">Selecione o setor</option>
             <option value="Design">Design</option>
             <option value="Vendas">Vendas</option>
           </select>
-          <input type="number" min="0" id="payment" placeholder="Pagamento" />
           <!-- <input
             type="text"
             id="cpf"
@@ -26,9 +37,9 @@
           /> -->
         </div>
         <input type="submit" id="submitButton" />
+        <div class="msg"></div>
+        <!-- messagem de erro que aparece após validação do form no main.js -->
       </form>
-      <div class="msg"></div>
-      <!-- messagem de erro que aparece após validação do form no main.js -->
     </section>
     <script src="../JS/main.js" type="module"></script>
   </body>

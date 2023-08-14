@@ -3,19 +3,33 @@ const lista_funcionario = new Set([])
 
 const form = document.querySelector("#my-form")
 const nameInput = document.querySelector("#name")
+const cpfInput = document.querySelector("#cpf")
 const sectionInput = document.querySelector("#section")
 const paymentInput = document.querySelector("#payment")
 const submitButton = document.querySelector("#submitButton")
 
 const errorMessage = document.querySelector(".msg")
 
+//máscara CPF
+cpfInput.addEventListener("keypress", () => {
+  let inputLength = cpfInput.value.length
+
+  if (inputLength === 3 || inputLength === 7) {
+    cpfInput.value += "."
+  } else if (inputLength === 11) {
+    cpfInput.value += "-"
+  }
+})
+
 function cadastro(id_global) {
   const nome = nameInput.value
+  const cpf = cpfInput.value
   const setor = sectionInput.value
   const pagamento = paymentInput.value
   const funcionario = {
     id: id_global,
     nome: nome,
+    cpf: cpf,
     setor: setor,
     pagamento: pagamento
   }
@@ -28,9 +42,13 @@ submitButton.addEventListener("click", (e) => {
   e.preventDefault()
 
   //exibindo alert se os inputs estiverem vazios ao 'enviar dados'
-  if (nameInput.value === "" || sectionInput.value === "" || paymentInput.value === '') {
-    (errorMessage.textContent = "Por favor preencha todos os campos!"),
-    (errorMessage.classList = "error")
+  if (
+    nameInput.value === "" ||
+    sectionInput.value === "" ||
+    paymentInput.value === ""
+  ) {
+    ;(errorMessage.textContent = "Por favor preencha todos os campos!"),
+      (errorMessage.classList = "error")
   } else {
     id_global = id_global + 1
     cadastro(id_global)
