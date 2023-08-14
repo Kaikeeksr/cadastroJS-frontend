@@ -11,8 +11,8 @@
       <form id="my-form">
         <div>
           <input type="text" id="name" placeholder="Nome" />
-          <input type="text" id="section" placeholder="Setor" />
-          <select name="Setor" id="setor1">
+          <select name="Setor" id="section">
+            <option value=''>-</option>
             <option value="Design">Design</option>
             <option value="Vendas">Vendas</option>
           </select>
@@ -27,7 +27,9 @@
         </div>
         <input type="submit" id="submitButton" />
       </form>
+      <div class="msg"></div>
+      <!-- messagem de erro que aparece após validação do form no main.js -->
     </section>
-    <script src="../JS/main.js"></script>
+    <script src="../JS/main.js" type="module"></script>
   </body>
 </html>
