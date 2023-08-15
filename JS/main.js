@@ -4,9 +4,11 @@ const lista_funcionario = new Set([])
 const form = document.querySelector("#my-form")
 const nameInput = document.querySelector("#name")
 const cpfInput = document.querySelector("#cpf")
-const sectionInput = document.querySelector("#section")
+const emailInput = document.querySelector("#email")
+const telInput = document.querySelector("#tel")
 const paymentInput = document.querySelector("#payment")
-const submitButton = document.querySelector("#submitButton")
+const sectionInput = document.querySelector("#section")
+const submitButton = document.querySelector("#submit-button")
 
 const errorMessage = document.querySelector(".msg")
 
@@ -21,15 +23,26 @@ cpfInput.addEventListener("keypress", () => {
   }
 })
 
+//Máscara telefone
+// telInput.addEventListener("keypress", () =>{
+//   let inputLength = telInput.value.length
+
+//   if (inputLength === 0)
+// })
+
 function cadastro(id_global) {
   const nome = nameInput.value
   const cpf = cpfInput.value
+  const email = emailInput.value
+  const tel = telInput.value
   const setor = sectionInput.value
   const pagamento = paymentInput.value
   const funcionario = {
     id: id_global,
     nome: nome,
     cpf: cpf,
+    email: email,
+    telefone: tel,
     setor: setor,
     pagamento: pagamento
   }
@@ -55,6 +68,9 @@ submitButton.addEventListener("click", (e) => {
 
     //limpando os dados do formulário
     nameInput.value = ""
+    cpfInput.value = ""
+    emailInput.value = ""
+    telInput.value = ""
     sectionInput.value = ""
     paymentInput.value = ""
   }
