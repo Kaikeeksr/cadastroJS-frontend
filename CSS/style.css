@@ -171,6 +171,18 @@ select {
   color: #fff;
 }
 
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.error {
+  background: #fff;
+  color: orangered;
+  padding: 5px;
+  margin: 5px;
+}
+
 /* Responsividade */
 @media screen and (max-width: 1330px) {
   .form-image {
