@@ -1,7 +1,7 @@
 import { removeSpecialChar } from "./helpers/clearMask.js"
 
 let id_global = 0
-const lista_funcionario = new Set([])
+const lista_funcionario = new Map()
 
 const form = document.querySelector("#my-form")
 const nameInput = document.querySelector("#name")
@@ -48,15 +48,9 @@ function cadastro(id_global) {
     genero: selectedGender(),
     pagamento: pagamento
   }
-  // Verifica se o CPF já existe na lista de funcionários
-  if (lista_funcionario.has(funcionario.cpf)) {
-    alert("Esse CPF já foi cadastrado.")
-    return
-  } else {
-    //criando uma copia do objeto funcionario e adicionando essa copia dentro de lista_funcionario
-    lista_funcionario.add(Object.assign({}, funcionario))
-    console.log(lista_funcionario)
-  }
+  //criando uma copia do objeto funcionario e adicionando essa copia dentro de lista_funcionario
+  lista_funcionario.set(Object.assign({}, funcionario))
+  console.log(lista_funcionario)
 }
 
 submitButton.addEventListener("click", (e) => {
