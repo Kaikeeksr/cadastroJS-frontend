@@ -1,4 +1,4 @@
-// import { cleanMask } from "./helpers/cleanMask.js"
+import { removeSpecialChar } from "./helpers/clearMask.js"
 
 let id_global = 0
 const lista_funcionario = new Set([])
@@ -29,16 +29,11 @@ cpfInput.addEventListener("keypress", () => {
 
 function cadastro(id_global) {
   const nome = nameInput.value
-  const cpfOnlyNumbers = () => {
-    var cpf = $("#cpf")
-      .val()
-      .replace(/[^0-9]/g, "")
-    return cpf
-  }
+  const cpf = removeSpecialChar(cpfInput.value)
   const email = emailInput.value
-  const tel = telInput.value
+  const tel = removeSpecialChar(telInput.value)
   const setor = departmentInput.value
-  const pagamento = paymentInput.value
+  const pagamento = removeSpecialChar(paymentInput.value)
   const selectedGender = () => {
     let selected = document.querySelector("input[name='gender']:checked").value
     return selected
@@ -46,16 +41,22 @@ function cadastro(id_global) {
   const funcionario = {
     id: id_global,
     nome: nome,
-    cpf: cpfOnlyNumbers(),
+    cpf: cpf,
     email: email,
     telefone: tel,
     setor: setor,
     genero: selectedGender(),
     pagamento: pagamento
   }
-  //criando uma copia do objeto funcionario e adicionando essa copia dentro de lista_funcionario
-  lista_funcionario.add(Object.assign({}, funcionario))
-  console.log(lista_funcionario)
+  // Verifica se o CPF já existe na lista de funcionários
+  if (lista_funcionario.has(funcionario.cpf)) {
+    alert("Esse CPF já foi cadastrado.")
+    return
+  } else {
+    //criando uma copia do objeto funcionario e adicionando essa copia dentro de lista_funcionario
+    lista_funcionario.add(Object.assign({}, funcionario))
+    console.log(lista_funcionario)
+  }
 }
 
 submitButton.addEventListener("click", (e) => {
@@ -74,14 +75,15 @@ submitButton.addEventListener("click", (e) => {
     cadastro(id_global)
 
     //limpando os dados do formulário
-    nameInput.value = ""
-    cpfInput.value = ""
-    emailInput.value = ""
-    telInput.value = ""
-    departmentInput.value = ""
-    paymentInput.value = ""
-    genderInputs.value = ""
+    // nameInput.value = ""
+    // cpfInput.value = ""
+    // emailInput.value = ""
+    // telInput.value = ""
+    // departmentInput.value = ""
+    // paymentInput.value = ""
+    // genderInputs.value = ""
 
-    // cleanMask()
+    //exibindo um alerta de sucesso
+    alert("Dados cadastrados com sucesso!")
   }
 })
