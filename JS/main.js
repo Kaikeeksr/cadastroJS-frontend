@@ -1,6 +1,7 @@
+// import { cleanMask } from "./helpers/cleanMask.js"
+
 let id_global = 0
 const lista_funcionario = new Set([])
-
 
 const form = document.querySelector("#my-form")
 const nameInput = document.querySelector("#name")
@@ -13,9 +14,9 @@ const genderInputs = document.querySelectorAll("input[name='gender']")
 const submitButton = document.querySelector("#submit-button")
 
 const errorMessage = document.querySelector(".msg")
-sectionInput.value = "" //inicia o select setor vazio
+departmentInput.value = "" //inicia o select setor vazio
 
-//máscara CPF
+// máscara CPF
 cpfInput.addEventListener("keypress", () => {
   let inputLength = cpfInput.value.length
 
@@ -26,16 +27,14 @@ cpfInput.addEventListener("keypress", () => {
   }
 })
 
-//Máscara telefone
-// telInput.addEventListener("keypress", () =>{
-//   let inputLength = telInput.value.length
-
-//   if (inputLength === 0)
-// })
-
 function cadastro(id_global) {
   const nome = nameInput.value
-  const cpf = cpfInput.value
+  const cpfOnlyNumbers = () => {
+    var cpf = $("#cpf")
+      .val()
+      .replace(/[^0-9]/g, "")
+    return cpf
+  }
   const email = emailInput.value
   const tel = telInput.value
   const setor = departmentInput.value
@@ -47,12 +46,12 @@ function cadastro(id_global) {
   const funcionario = {
     id: id_global,
     nome: nome,
-    cpf: cpf,
+    cpf: cpfOnlyNumbers(),
     email: email,
     telefone: tel,
     setor: setor,
     genero: selectedGender(),
-    pagamento: pagamento,
+    pagamento: pagamento
   }
   //criando uma copia do objeto funcionario e adicionando essa copia dentro de lista_funcionario
   lista_funcionario.add(Object.assign({}, funcionario))
@@ -65,7 +64,7 @@ submitButton.addEventListener("click", (e) => {
   //exibindo alert se os inputs estiverem vazios ao 'enviar dados'
   if (
     nameInput.value === "" ||
-    sectionInput.value === "" ||
+    departmentInput.value === "" ||
     paymentInput.value === ""
   ) {
     ;(errorMessage.textContent = "Por favor preencha todos os campos!"),
@@ -79,8 +78,10 @@ submitButton.addEventListener("click", (e) => {
     cpfInput.value = ""
     emailInput.value = ""
     telInput.value = ""
-    sectionInput.value = ""
+    departmentInput.value = ""
     paymentInput.value = ""
     genderInputs.value = ""
+
+    // cleanMask()
   }
 })
