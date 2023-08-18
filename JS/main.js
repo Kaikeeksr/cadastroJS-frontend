@@ -1,6 +1,7 @@
-let id_global = 0
-const lista_funcionario = new Set([])
+import { removeSpecialChar } from "./helpers/clearMask.js"
 
+let id_global = 0
+const lista_funcionario = new Map()
 
 const form = document.querySelector("#my-form")
 const nameInput = document.querySelector("#name")
@@ -13,9 +14,9 @@ const genderInputs = document.querySelectorAll("input[name='gender']")
 const submitButton = document.querySelector("#submit-button")
 
 const errorMessage = document.querySelector(".msg")
-sectionInput.value = "" //inicia o select setor vazio
+departmentInput.value = "" //inicia o select setor vazio
 
-//máscara CPF
+// máscara CPF
 cpfInput.addEventListener("keypress", () => {
   let inputLength = cpfInput.value.length
 
@@ -26,20 +27,13 @@ cpfInput.addEventListener("keypress", () => {
   }
 })
 
-//Máscara telefone
-// telInput.addEventListener("keypress", () =>{
-//   let inputLength = telInput.value.length
-
-//   if (inputLength === 0)
-// })
-
 function cadastro(id_global) {
   const nome = nameInput.value
-  const cpf = cpfInput.value
+  const cpf = removeSpecialChar(cpfInput.value)
   const email = emailInput.value
-  const tel = telInput.value
+  const tel = removeSpecialChar(telInput.value)
   const setor = departmentInput.value
-  const pagamento = paymentInput.value
+  const pagamento = removeSpecialChar(paymentInput.value)
   const selectedGender = () => {
     let selected = document.querySelector("input[name='gender']:checked").value
     return selected
@@ -52,10 +46,10 @@ function cadastro(id_global) {
     telefone: tel,
     setor: setor,
     genero: selectedGender(),
-    pagamento: pagamento,
+    pagamento: pagamento
   }
   //criando uma copia do objeto funcionario e adicionando essa copia dentro de lista_funcionario
-  lista_funcionario.add(Object.assign({}, funcionario))
+  lista_funcionario.set(Object.assign({}, funcionario))
   console.log(lista_funcionario)
 }
 
@@ -65,7 +59,7 @@ submitButton.addEventListener("click", (e) => {
   //exibindo alert se os inputs estiverem vazios ao 'enviar dados'
   if (
     nameInput.value === "" ||
-    sectionInput.value === "" ||
+    departmentInput.value === "" ||
     paymentInput.value === ""
   ) {
     ;(errorMessage.textContent = "Por favor preencha todos os campos!"),
@@ -75,12 +69,15 @@ submitButton.addEventListener("click", (e) => {
     cadastro(id_global)
 
     //limpando os dados do formulário
-    nameInput.value = ""
-    cpfInput.value = ""
-    emailInput.value = ""
-    telInput.value = ""
-    sectionInput.value = ""
-    paymentInput.value = ""
-    genderInputs.value = ""
+    // nameInput.value = ""
+    // cpfInput.value = ""
+    // emailInput.value = ""
+    // telInput.value = ""
+    // departmentInput.value = ""
+    // paymentInput.value = ""
+    // genderInputs.value = ""
+
+    //exibindo um alerta de sucesso
+    alert("Dados cadastrados com sucesso!")
   }
 })

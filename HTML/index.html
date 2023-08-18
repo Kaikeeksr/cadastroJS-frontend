@@ -58,7 +58,7 @@
             <div class="input-box">
               <label for="tel">Telefone</label>
               <input
-                type="number"
+                type="text"
                 name="tel"
                 id="tel"
                 placeholder="(XX) XXXX-XXXX"
@@ -126,5 +126,12 @@
       </div>
     </div>
   </body>
-  <script src="../JS/main.js"></script>
+  <script src="../JS/main.js" type="module"></script>
+  <!-- Máscara dos inputs com JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+  <script>
+    $("#tel").mask("(00) 00000-0000")
+    $("#payment").mask("000.000.000.000.000,00", { reverse: true })
+  </script>
 </html>
