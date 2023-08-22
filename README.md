@@ -1,2 +1,2 @@
 # cadastroJS
-sistema de cadastro de funcionários
+Esse projeto surgiu de uma atividade sobre lógica de programação feita na faculdade. O [código original](https://github.com/Kaikeeksr/logica) feito em python foi uma atividade didática com o intuito de simular um sistema de cadastro de funcionários. Como o JavaScipt trás novas possibilidades, resolvi levar essa ideia inicial a um próximo nível criando uma tela funcional, além de trabalhar com NodeJS e um banco de dados SQL.
