@@ -25,9 +25,10 @@ const employeeAdded = async (employee) => {
     employee_gender,
     employee_wage
   } = employee
+  const dateUTC = new Date(Date.now()).toUTCString()
   const query =
-    "INSERT INTO tbl_employees (employee_id, employee_name, employee_cpf, employee_email, employee_tel, employee_departament, employee_gender, employee_wage)" +
-    "VALUES(?,?,?,?,?,?,?,?)"
+    "INSERT INTO tbl_employees (employee_id, employee_name, employee_cpf, employee_email, employee_tel, employee_departament, employee_gender, employee_wage, created_at)" +
+    "VALUES(?,?,?,?,?,?,?,?,?)"
 
   const EmployeeAdded = await connection.execute(query, [
     employee_id,
@@ -37,7 +38,8 @@ const employeeAdded = async (employee) => {
     employee_tel,
     employee_departament,
     employee_gender,
-    employee_wage
+    employee_wage,
+    dateUTC
   ])
 
   return EmployeeAdded[0]
