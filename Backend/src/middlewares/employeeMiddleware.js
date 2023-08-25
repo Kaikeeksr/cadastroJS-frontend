@@ -1,9 +1,11 @@
 const validateBody = (req, res, next) =>{
-    const  { body } = request
+    const  { body } = req
 
-    if(body.title === undefined || '') {
+    if(body.employee_name === undefined || '') {
         return res.status(400).json({message: 'o campo nome é obrigatório!'})
     }
+
+    next()
 }
 
 module.exports = {
