@@ -13,6 +13,19 @@ const departmentInput = document.querySelector("#department")
 const genderInputs = document.querySelectorAll("input[name='gender']")
 const submitButton = document.querySelector("#submit-button")
 
+// MODAL
+const infoButton = document.querySelector(".info-button")
+const modal = document.querySelector("#infoModal")
+const closeModal = document.querySelector("#closeModal")
+
+infoButton.onclick = function () {
+  modal.showModal()
+}
+
+closeModal.onclick = function () {
+  modal.close()
+}
+
 const errorMessage = document.querySelector(".msg")
 departmentInput.value = "" //inicia o select setor vazio
 
@@ -69,13 +82,13 @@ submitButton.addEventListener("click", (e) => {
     cadastro(id_global)
 
     //limpando os dados do formulário
-    // nameInput.value = ""
-    // cpfInput.value = ""
-    // emailInput.value = ""
-    // telInput.value = ""
-    // departmentInput.value = ""
-    // paymentInput.value = ""
-    // genderInputs.value = ""
+    nameInput.value = ""
+    cpfInput.value = ""
+    emailInput.value = ""
+    telInput.value = ""
+    departmentInput.value = ""
+    paymentInput.value = ""
+    genderInputs.value = ""
 
     //exibindo um alerta de sucesso
     alert("Dados cadastrados com sucesso!")
