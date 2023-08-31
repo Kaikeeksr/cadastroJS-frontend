@@ -8,6 +8,8 @@
   font-family: "Inter", sans-serif;
 }
 
+
+
 body {
   width: 100%;
   height: 100vh;
@@ -22,6 +24,32 @@ body {
   height: 80vh;
   display: flex;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.3);
+}
+
+dialog {
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
+  width: 30%;
+}
+dialog h1 {
+  padding: 10px;
+  color: #6c63ff;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+dialog p {
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+  text-align: justify;
+  text-indent: 20px;
 }
 
 .form-image {
@@ -53,24 +81,40 @@ body {
   justify-content: space-between;
 }
 
-.login-button {
+.info-button img {
+  width: 50px;
+  height: 30px;
+}
+
+.info-button {
   display: flex;
   align-items: center;
 }
 
-.login-button button {
+.info-button button {
   border: none;
   background-color: #6c63ff;
   padding: 0.4rem 1rem;
-  border-radius: 5px;
+  border-radius: 100px;
   cursor: pointer;
 }
 
-.login-button button:hover {
+#closeModal {
+  margin-left: 15px;
+  margin-bottom: 15px;
+  border: none;
+  color: #fff;
+  background-color: #6c63ff;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.info-button button:hover {
   background-color: #6b63fff1;
 }
 
-.login-button button a {
+.info-button button a {
   text-decoration: nonoe;
   font-weight: 500;
   color: #fff;
