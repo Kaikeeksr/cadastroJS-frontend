@@ -75,6 +75,7 @@ section {
 }
 
 .left .btn {
+  margin-top: 1%;
   padding: 1.5rem 5rem;
   background-color: #e6e6fa;
   border-radius: 15px;

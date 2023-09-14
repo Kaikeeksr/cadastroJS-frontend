@@ -15,6 +15,7 @@ fetchEmployees().then(function (employees) {
           <td>${employee.employee_email}</td>
           <td>${employee.employee_cpf}</td>
           <td>${employee.employee_tel}</td>
+          <td>${employee.employee_departament}</td>
           <td>${employee.employee_wage}</td>
           <td>${employee.employee_gender}</td>
           <td>${employee.created_at}</td>

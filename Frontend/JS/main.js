@@ -1,9 +1,6 @@
 import { removeSpecialChar } from "./helpers/clearMask.js"
 
-let id_global = 0
-const lista_funcionario = new Map()
-
-const form = document.querySelector("#my-form")
+//const form = document.querySelector("#my-form")
 const nameInput = document.querySelector("#name")
 const cpfInput = document.querySelector("#cpf")
 const emailInput = document.querySelector("#email")
@@ -40,7 +37,7 @@ cpfInput.addEventListener("keypress", () => {
   }
 })
 
-function cadastro(id_global) {
+function cadastro() {
   const nome = nameInput.value
   const cpf = removeSpecialChar(cpfInput.value)
   const email = emailInput.value
@@ -52,18 +49,25 @@ function cadastro(id_global) {
     return selected
   }
   const funcionario = {
-    id: id_global,
-    nome: nome,
-    cpf: cpf,
-    email: email,
-    telefone: tel,
-    setor: setor,
-    genero: selectedGender(),
-    pagamento: pagamento
+    employee_id: null,
+    employee_name: nome,
+    employee_cpf: cpf,
+    employee_email: email,
+    employee_tel: tel,
+    employee_departament: setor,
+    employee_gender: selectedGender(),
+    employee_wage: pagamento
   }
-  //criando uma copia do objeto funcionario e adicionando essa copia dentro de lista_funcionario
-  lista_funcionario.set(Object.assign({}, funcionario))
-  console.log(lista_funcionario)
+  console.log(funcionario)
+
+  // fazendo um POST com os dados do funcionário no body
+  fetch("http://localhost:3333/user", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(funcionario)
+  })
 }
 
 submitButton.addEventListener("click", (e) => {
@@ -75,11 +79,10 @@ submitButton.addEventListener("click", (e) => {
     departmentInput.value === "" ||
     paymentInput.value === ""
   ) {
-    ;(errorMessage.textContent = "Por favor preencha todos os campos!"),
+    (errorMessage.textContent = "Por favor preencha todos os campos!"),
       (errorMessage.classList = "error")
   } else {
-    id_global = id_global + 1
-    cadastro(id_global)
+    cadastro()
 
     //limpando os dados do formulário
     nameInput.value = ""
