@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../CSS/user-list.css" />
+    <link rel="stylesheet" href="../CSS/loader.css" />
     <script src="../JS/user.js"></script>
     <title>lista de usuários</title>
   </head>
   <body>
+    <div class="loader"></div>
     <h1>Lista de funcionários</h1>
     <table class="content-table">
       <thead>
@@ -20,7 +22,7 @@
           <th>Setor</th>
           <th>Salário</th>
           <th>Gênero</th>
-          <th>Cadastrado em:</th>
+          <th>Cadastrado em</th>
         </tr>
       </thead>
       <tbody id="data-output">
@@ -29,11 +31,9 @@
     </table>
     <a href="../HTML/index.html" class="btn">Início</a>
   </body>
-  <!-- Máscara dos inputs com JQuery -->
-  <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
   <script>
-    $("#tel").mask("(00) 00000-0000")
-    $("#payment").mask("R$ 000.000.000.000.000,00", { reverse: true })
-  </script> -->
+    window.addEventListener("load", () => {
+      document.querySelector(".loader").classList.add("loader--hidden")
+    })
+  </script>
 </html>
