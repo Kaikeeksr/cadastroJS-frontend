@@ -76,10 +76,15 @@ submitButton.addEventListener("click", (e) => {
   //exibindo alert se os inputs estiverem vazios ao 'enviar dados'
   if (
     nameInput.value === "" ||
+    cpfInput.value === "" ||
+    emailInput.value === "" ||
+    telInput.value === "" ||
     departmentInput.value === "" ||
-    paymentInput.value === ""
+    paymentInput.value === "" ||
+    genderInputs.value === ""
+    //melhorar validação dps
   ) {
-    (errorMessage.textContent = "Por favor preencha todos os campos!"),
+      (errorMessage.textContent = "Por favor preencha todos os campos!"),
       (errorMessage.classList = "error")
   } else {
     cadastro()
