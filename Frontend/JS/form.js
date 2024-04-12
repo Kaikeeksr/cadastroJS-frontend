@@ -37,7 +37,7 @@ cpfInput.addEventListener("keypress", () => {
   }
 })
 
-function cadastro() {
+async function cadastro() {
   const nome = nameInput.value
   const cpf = removeSpecialChar(cpfInput.value)
   const email = emailInput.value
@@ -60,14 +60,35 @@ function cadastro() {
   }
   console.log(funcionario)
 
-  // fazendo um POST com os dados do funcionário no body
-  fetch("http://localhost:3333/user", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(funcionario)
-  })
+  try {
+    // fazendo um POST com os dados do funcionário no body
+    const response = await fetch("http://localhost:3333/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(funcionario)
+    })
+
+    if (response.ok) {
+      //limpando os dados do formulário
+      nameInput.value = ""
+      cpfInput.value = ""
+      emailInput.value = ""
+      telInput.value = ""
+      departmentInput.value = ""
+      paymentInput.value = ""
+      genderInputs.value = ""
+
+      //exibindo um alerta de sucesso
+      alert("Dados cadastrados com sucesso!")
+    } else {
+      //Se a resposta não for 'ok', laça um erro
+      throw new Error("Erro ao cadastrar funcionário: " + Response.statusText)
+    }
+  } catch (error) {
+    console.log("Erro ao cadastrar funcionário", error)
+  }
 }
 
 submitButton.addEventListener("click", (e) => {
@@ -84,21 +105,9 @@ submitButton.addEventListener("click", (e) => {
     genderInputs.value === ""
     //melhorar validação dps
   ) {
-      (errorMessage.textContent = "Por favor preencha todos os campos!"),
+    ;(errorMessage.textContent = "Por favor preencha todos os campos!"),
       (errorMessage.classList = "error")
   } else {
     cadastro()
-
-    //limpando os dados do formulário
-    nameInput.value = ""
-    cpfInput.value = ""
-    emailInput.value = ""
-    telInput.value = ""
-    departmentInput.value = ""
-    paymentInput.value = ""
-    genderInputs.value = ""
-
-    //exibindo um alerta de sucesso
-    alert("Dados cadastrados com sucesso!")
   }
 })
