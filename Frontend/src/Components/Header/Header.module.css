@@ -1,0 +1,46 @@
+header {
+  background-color: #6c63ff;
+  padding: 20px; /* Ajuste para um padding menor em telas menores */
+  text-align: right;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  gap: 20px; /* Ajuste para um gap menor em telas menores */
+  margin: 0; /* Remova a margem para evitar espaçamento extra */
+  padding: 0; /* Remova o preenchimento para evitar espaçamento extra */
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 1rem; /* Ajuste para um tamanho de fonte menor em telas menores */
+  border-bottom: 0.5px solid transparent;
+  transition: all 0.5s;
+}
+
+nav ul li a:hover {
+  border-bottom: 3px solid #fff;
+}
+
+@media screen and (max-width: 768px) {
+  /* Aplique estilos específicos para telas menores que 768px de largura */
+  header {
+    padding: 10px; /* Reduza ainda mais o padding para telas menores */
+  }
+
+  nav ul {
+    gap: 10px; /* Reduza ainda mais o gap para telas menores */
+  }
+
+  nav ul li a {
+    font-size: 0.9rem; /* Reduza ainda mais o tamanho da fonte para telas menores */
+  }
+}
