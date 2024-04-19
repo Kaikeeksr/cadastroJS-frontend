@@ -30,7 +30,7 @@ export default function Home() {
                 <Title>
                   Experimente o nosso sistema de cadastro de funcionários!
                 </Title>
-                <Button href="#">Cadastre um funcionário!</Button>
+                <Button href="/register">Cadastre um funcionário!</Button>
                 <Button href="#">Veja os cadastros</Button>
               </div>
               <div className="right">

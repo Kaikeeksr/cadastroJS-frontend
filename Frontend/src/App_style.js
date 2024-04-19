@@ -29,4 +29,7 @@ html,
         font-family: "Inter", sans-serif;
         background-color: ${bg_color};
     }
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.3)
+  }  
 `
