@@ -1,14 +1,12 @@
 import styled from "styled-components"
 
 export const FormWrapper = styled.div`
-  body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #8e89f6;
-  }
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #8e89f6;
 
   .container {
     width: 80%;
