@@ -5,3 +5,5 @@ Esse projeto surgiu de uma atividade sobre lógica de programação feita na fac
 se quiser dar uma olhada no backend é só clicar [aqui](https://github.com/Kaikeeksr/cadastroJS-backend)
 
 # Código em contrução 🏗
+
+Atualmente, o Frontend está sendo atualizado usando React. Você pode conferir o processo clicando [aqui](https://github.com/Kaikeeksr/cadastroJS-frontend/tree/react-transition)
