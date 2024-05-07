@@ -142,6 +142,9 @@ export const FormWrapper = styled.div`
 
   .submit-button {
     button {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
       width: 100%;
       margin-top: 3.5rem;
       border: none;

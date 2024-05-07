@@ -2,6 +2,7 @@ import { FormWrapper, CloseModalButton } from "./style"
 import form_img from "../../Imgs/undraw_hiring_re_yk5n.svg"
 import info_img from "../../Imgs/icons8-info.svg"
 import { useRef, useState } from "react"
+import { Cadastro } from "./JS/form"
 
 export function Form() {
   //Estado para controlar se a dialog está aberta ou não
@@ -19,7 +20,36 @@ export function Form() {
     }
     setDialogOpen(open)
   }
+  //MÁSCARA DO CPF
+  const [cpf, setCpf] = useState("")
+  const handleCpfChange = (event) => {
+    let value = event.target.value
+    value = value.replace(/\D/g, "")
+    value = value.replace(/(\d{3})(\d)/, "$1.$2")
+    value = value.replace(/(\d{3})(\d)/, "$1.$2")
+    value = value.replace(/(\d{3})(\d{2})$/, "$1-$2")
+    setCpf(value)
+  }
 
+  //MÁSCARA DO TELEFONE
+  const [tel, setTel] = useState("")
+  const handleTelChange = (event) => {
+    let value = event.target.value
+    value = value.replace(/\D/g, "")
+    value = value.replace(/(\d{2})(\d)/, "($1) $2")
+    value = value.replace(/(\d{4})(\d)/, "$1-$2")
+    setTel(value)
+  }
+
+  //MÁSCARA DO SALÁRIO
+  const [payment, setPayment] = useState("")
+  const handlePaymentChange = (event) => {
+    let value = event.target.value
+    value = value.replace(/\D/g, "") // remove any non-digit characters
+    value = value.replace(/(\d)(\d{2})$/, "$1,$2") // adds a comma before the last two digits
+    value = value.replace(/(?=(\d{3})+(\D))\B/g, ".") // adds a dot every three digits before the comma
+    setPayment(`R$ ${value}`)
+  }
   return (
     <>
       <FormWrapper>
@@ -77,12 +107,15 @@ export function Form() {
                   <div className="input-box">
                     <label htmlFor="cpf">CPF</label>
                     <input
+                      mask="999.999.999-99"
                       type="text"
                       name="cpf"
                       id="cpf"
                       placeholder="Digite o CPF do funcionário"
                       maxLength="14"
                       required
+                      value={cpf}
+                      onChange={handleCpfChange}
                     />
                   </div>
                   <div className="input-box">
@@ -102,7 +135,10 @@ export function Form() {
                       name="tel"
                       id="tel"
                       placeholder="(XX) XXXX-XXXX"
+                      maxLength="15"
                       required
+                      value={tel}
+                      onChange={handleTelChange}
                     />
                   </div>
                   <div className="input-box">
@@ -113,6 +149,9 @@ export function Form() {
                       id="payment"
                       placeholder="Digite o salário do funcionário"
                       required
+                      maxLength="20"
+                      value={payment}
+                      onChange={handlePaymentChange}
                     />
                   </div>
                   <div className="input-box">
@@ -146,7 +185,9 @@ export function Form() {
                 </div>
               </div>
               <div className="submit-button">
-                <button type="submit-button">Confirmar</button>
+                <button type="submit-button" onClick={Cadastro}>
+                  Confirmar
+                </button>
               </div>
               <div className="msg"></div>
             </form>
