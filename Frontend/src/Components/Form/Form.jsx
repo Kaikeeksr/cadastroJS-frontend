@@ -2,9 +2,18 @@ import { FormWrapper, CloseModalButton } from "./style"
 import form_img from "../../Imgs/undraw_hiring_re_yk5n.svg"
 import info_img from "../../Imgs/icons8-info.svg"
 import { useRef, useState } from "react"
-import { Cadastro } from "./JS/form"
+// import { Cadastro } from "./JS/form"
+import { useForm } from "react-hook-form"
 
 export function Form() {
+  //biblioteca para controle de formulários
+  const { register, handleSubmit } = useForm()
+
+  //função onSubmit
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
   //Estado para controlar se a dialog está aberta ou não
   const [dialogopen, setDialogOpen] = useState(false)
 
@@ -102,6 +111,7 @@ export function Form() {
                       id="name"
                       placeholder="Digite o nome do funcionário"
                       required
+                      {...register("name")}
                     />
                   </div>
                   <div className="input-box">
@@ -114,8 +124,9 @@ export function Form() {
                       placeholder="Digite o CPF do funcionário"
                       maxLength="14"
                       required
-                      value={cpf}
-                      onChange={handleCpfChange}
+                      // value={cpf}
+                      // onChange={handleCpfChange}
+                      {...register("cpf")}
                     />
                   </div>
                   <div className="input-box">
@@ -126,6 +137,7 @@ export function Form() {
                       id="email"
                       placeholder="Digite o e-mail do funcionário"
                       required
+                      {...register("email")}
                     />
                   </div>
                   <div className="input-box">
@@ -137,8 +149,9 @@ export function Form() {
                       placeholder="(XX) XXXX-XXXX"
                       maxLength="15"
                       required
-                      value={tel}
-                      onChange={handleTelChange}
+                      // value={tel}
+                      // onChange={handleTelChange}
+                      {...register("tel")}
                     />
                   </div>
                   <div className="input-box">
@@ -150,13 +163,18 @@ export function Form() {
                       placeholder="Digite o salário do funcionário"
                       required
                       maxLength="20"
-                      value={payment}
-                      onChange={handlePaymentChange}
+                      // value={payment}
+                      // onChange={handlePaymentChange}
+                      {...register("payment")}
                     />
                   </div>
                   <div className="input-box">
                     <label htmlFor="departament">Setor</label>
-                    <select name="departament" id="departament">
+                    <select
+                      name="departament"
+                      id="departament"
+                      {...register("departament")}
+                    >
                       <option value="design">design</option>
                       <option value="logistics">Logística</option>
                       <option value="support">Suporte</option>
@@ -185,7 +203,11 @@ export function Form() {
                 </div>
               </div>
               <div className="submit-button">
-                <button type="submit-button" onClick={Cadastro}>
+                <button
+                  id="submit-button"
+                  type="submit-button"
+                  onClick={handleSubmit(onSubmit)}
+                >
                   Confirmar
                 </button>
               </div>

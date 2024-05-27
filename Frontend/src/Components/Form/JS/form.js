@@ -1,34 +1,43 @@
+import { useState } from "react"
 import { removeSpecialChar } from "../../../Helpers/clearMask"
 
-export async function Cadastro() {
-  const submitButton = document.querySelector("#submit")
+export function Form() {
+  const [nome, setNome] = useState("")
+  const [cpf, setCpf] = useState("")
+  const [email, setEmail] = useState("")
+  const [tel, setTel] = useState("")
+  const [setor, setSetor] = useState("")
+  const [salario, setSalario] = useState("")
+  const [gender, setGender] = useState("")
 
-  submitButton.addEventListener("click", (e) => {
+  const Cadastro = async (e) => {
     e.preventDefault()
-
-    const nome = document.querySelector("#name").value
-    const cpf = removeSpecialChar(document.querySelector("#cpf").value)
-    const email = document.querySelector("#email").value
-    const tel = document.querySelector("#tel").value
-    const setor = document.querySelector("#departament").value
-    const salario = document.querySelector("#payment").value
-    const selectedGender = () => {
-      let selected = document.querySelector(
-        "input[name='gender']:checked"
-      ).value
-      return selected
-    }
 
     const funcionario = {
       employee_id: null,
       employee_name: nome,
-      employee_cpf: cpf,
+      employee_cpf: removeSpecialChar(cpf),
       employee_email: email,
-      employee_tel: tel,
+      employee_tel: removeSpecialChar(tel),
       employee_departament: setor,
-      employee_gender: selectedGender(),
-      employee_wage: salario
+      employee_gender: gender,
+      employee_wage: removeSpecialChar(salario)
     }
+
     console.log(funcionario)
-  })
+  }
 }
+//   const response = await fetch("https://your-endpoint.com", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(funcionario)
+//   })
+
+//   if (response.ok) {
+//     console.log("Funcionario cadastrado com sucesso!")
+//   } else {
+//     console.log("Erro ao cadastrar funcionario.")
+//   }
+// }
