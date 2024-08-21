@@ -18,19 +18,18 @@
         <!-- dialog -->
         <dialog id="infoModal">
           <h1>Atenção!</h1>
-
-          <p>
+          <p style="text-align: justify">
             Esse é um projeto de portifólio, porém as funcionalidades da
             aplicação permite a gravação de dados dentro de um servidor real.
           </p>
-          <p>
+          <p style="text-align: justify">
             As informações passadas no cadastro serão guardadas dentro de um
             banco de dados em nuvem. Evite colocar dados sensíveis ou dados
             reais nessa aplicação.
           </p>
           <button id="closeModal">Ok!</button>
         </dialog>
-        <form action="#">
+        <form id="main-form" action="#">
           <!-- Cabeçalho do formulário -->
           <div class="form-header">
             <div class="title">
@@ -51,20 +50,13 @@
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Digite o nome do funcionário"
+                maxlength="50"
                 required
               />
             </div>
             <div class="input-box">
               <label for="cpf">CPF</label>
-              <input
-                type="text"
-                name="cpf"
-                id="cpf"
-                placeholder="Digite o CPF do funcionário"
-                maxlength="14"
-                required
-              />
+              <input type="text" name="cpf" id="cpf" maxlength="14" required />
             </div>
             <div class="input-box">
               <label for="email">E-mail</label>
@@ -72,19 +64,13 @@
                 type="email"
                 name="email"
                 id="email"
-                placeholder="Digite o e-mail do funcionário"
+                maxlength="50"
                 required
               />
             </div>
             <div class="input-box">
               <label for="tel">Telefone</label>
-              <input
-                type="text"
-                name="tel"
-                id="tel"
-                placeholder="(XX) XXXX-XXXX"
-                required
-              />
+              <input type="text" name="tel" maxlength="15" id="tel" />
             </div>
             <div class="input-box">
               <label for="payment">Salário</label>
@@ -92,13 +78,14 @@
                 type="text"
                 name="payment"
                 id="payment"
-                placeholder="Digite o nome do funcionário"
+                maxlength="12"
                 required
               />
             </div>
             <div class="input-box">
               <label for="name">Setor</label>
               <select name="department" id="department">
+                <option value="">Selecione um setor</option>
                 <option value="design">Design</option>
                 <option value="logistics">Logística</option>
                 <option value="support">Suporte</option>
@@ -112,19 +99,43 @@
             </div>
             <div class="gender-group">
               <div class="gender-inputs">
-                <input type="radio" name="gender" id="gender" value="F" />
+                <input
+                  type="radio"
+                  name="gender"
+                  id="gender"
+                  value="F"
+                  style="cursor: pointer"
+                />
                 <label for="female">Feminino</label>
               </div>
               <div class="gender-inputs">
-                <input type="radio" name="gender" id="gender" value="M" />
+                <input
+                  type="radio"
+                  name="gender"
+                  id="gender"
+                  value="M"
+                  style="cursor: pointer"
+                />
                 <label for="male">Masculino</label>
               </div>
               <div class="gender-inputs">
-                <input type="radio" name="gender" id="gender" value="O" />
+                <input
+                  type="radio"
+                  name="gender"
+                  id="gender"
+                  value="O"
+                  style="cursor: pointer"
+                />
                 <label for="other">Outro</label>
               </div>
               <div class="gender-inputs">
-                <input type="radio" name="gender" id="gender" value="N" />
+                <input
+                  type="radio"
+                  name="gender"
+                  id="gender"
+                  value="N"
+                  style="cursor: pointer"
+                />
                 <label for="none">Preferiu não dizer</label>
               </div>
             </div>
@@ -140,7 +151,7 @@
   <script>
     //Máscara dos inputs com JQuery
     $('#cpf').mask('000.000.000-00')
-    $("#tel").mask("(00) 00000-0000")
-    $("#payment").mask("R$ 000.000.000.000.000,00", { reverse: true })
+    $('#tel').mask('(00) 00000-0000')
+    $('#payment').mask('R$ 000.000.000.000.000,00', { reverse: true })
   </script>
 </html>
