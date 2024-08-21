@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/form.css" />
+    <link rel="stylesheet" href="./form.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="./form.js" type="module"></script>
     <title>Formulário de cadastro</title>
   </head>
   <body>
     <div class="container">
       <div class="form-image">
-        <img src="../CSS/img/undraw_hiring_re_yk5n.svg" alt="" />
+        <img src="../../Assets/undraw_hiring_re_yk5n.svg" alt="" />
       </div>
       <div class="form">
         <!-- dialog -->
@@ -35,7 +38,7 @@
             </div>
             <div class="info-button">
               <img
-                src="../CSS/img/info-2-svgrepo-com.svg"
+                src="../../Assets/info-2-svgrepo-com.svg"
                 alt="logo de janela de informação"
               />
             </div>
@@ -134,11 +137,8 @@
       </div>
     </div>
   </body>
-  <script src="../JS/form.js" type="module"></script>
-  <!-- Máscara dos inputs com JQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
   <script>
+    //Máscara dos inputs com JQuery
     $('#cpf').mask('000.000.000-00')
     $("#tel").mask("(00) 00000-0000")
     $("#payment").mask("R$ 000.000.000.000.000,00", { reverse: true })

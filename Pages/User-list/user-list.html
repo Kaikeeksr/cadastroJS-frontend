@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/user-list.css" />
-    <link rel="stylesheet" href="../CSS/loader.css" />
-    <script src="../JS/user.js"></script>
+    <link rel="stylesheet" href="./user-list.css" />
+    <script src="./user.js"></script>
     <title>lista de usuários</title>
   </head>
   <body>
-    <div class="loader"></div>
     <h1>Lista de funcionários</h1>
     <table class="content-table">
       <thead>
@@ -29,11 +27,6 @@
         <!-- populando a tabela -->
       </tbody>
     </table>
-    <a href="../HTML/index.html" class="btn">Início</a>
+    <a href="../../index.html" class="btn">Início</a>
   </body>
-  <script>
-    window.addEventListener("load", () => {
-      document.querySelector(".loader").classList.add("loader--hidden")
-    })
-  </script>
 </html>
