@@ -1,10 +1,16 @@
 import { removeSpecialChar } from '../../helpers/clearMask.js'
 
 $('.info-button').click(function () {
+  $('#main-form').find('input').attr('disabled', true)
+  $('#submit-button').attr('disabled', true)
+  $('#department').attr('disabled', true)
   $('#infoModal').show()
 })
 
 $('#closeModal').click(function () {
+  $('#main-form').find('input').attr('disabled', false)
+  $('#submit-button').attr('disabled', false)
+  $('#department').attr('disabled', false)
   $('#infoModal').hide()
 })
 
@@ -73,8 +79,6 @@ async function cadastro(funcionario) {
     })
 
     alert('Dados cadastrados com sucesso!')
-
-    return await response.JSON()
   } catch (error) {
     console.error(error)
     alert(`Ocorreu um erro ao tentar acessar o servidor: ${error}`)
