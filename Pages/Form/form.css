@@ -256,17 +256,24 @@ input[type='number'] {
     height: auto;
   }
   .input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+    column-count: 2;
+    column-gap: 2rem;
+  }
+
+  .input-box {
+    display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    flex-wrap: nowrap;
-    max-height: 10rem;
-    padding-right: 5rem;
+    margin-bottom: 1.1rem;
   }
   .gender_inputs {
     margin-top: 2rem;
   }
   .gender-group {
-    flex-direction: column;
+    flex-direction: row;
   }
   .gender_input {
     margin-top: 0.5rem;
