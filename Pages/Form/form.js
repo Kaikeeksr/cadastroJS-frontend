@@ -78,7 +78,12 @@ async function cadastro(funcionario) {
       body: JSON.stringify(funcionario),
     })
 
-    alert('Dados cadastrados com sucesso!')
+    if (response.ok) {
+      alert('Dados cadastrados com sucesso!')
+    } else {
+      const data = await response.json()
+      alert(`Ocorreu um erro: ${data.error}`)
+    }
   } catch (error) {
     console.error(error)
     alert(`Ocorreu um erro ao tentar acessar o servidor: ${error}`)
