@@ -230,11 +230,13 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
-.error {
+.error-msg {
   background: #fff;
   color: orangered;
   padding: 5px;
   margin: 5px;
+  font-weight: bold;
+  display: none;
 }
 
 /* Responsividade */

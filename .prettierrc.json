@@ -1,20 +1,20 @@
 {
-  "semi": false,
-  "singleQuote": true,
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "jsxBracketSameLine": true,
-  "arrowParens": "always",
-  "quoteProps": "as-needed",
-  "htmlWhitespaceSensitivity": "css",
-  "vueIndentScriptAndStyle": false,
-  "overrides": [
-    {
-      "files": "*.vue",
-      "options": {
-        "singleQuote": false
+   "semi": false,
+   "singleQuote": true,
+   "printWidth": 80,
+   "tabWidth": 2,
+   "useTabs": false,
+   "jsxBracketSameLine": true,
+   "arrowParens": "always",
+   "quoteProps": "as-needed",
+   "htmlWhitespaceSensitivity": "css",
+   "vueIndentScriptAndStyle": false,
+   "overrides": [
+      {
+         "files": "*.vue",
+         "options": {
+            "singleQuote": false
+         }
       }
-    }
-  ]
+   ]
 }

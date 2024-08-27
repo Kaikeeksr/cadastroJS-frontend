@@ -1,4 +1,6 @@
 import { removeSpecialChar } from '../../helpers/clearMask.js'
+import { emailValidator } from '../../helpers/emailValidator.js'
+import { cpfValidator } from '../../helpers/cpfValidator.js'
 
 $('.info-button').click(function () {
   $('#main-form').find('input').attr('disabled', true)
@@ -33,6 +35,21 @@ submitButton.addEventListener('click', async (e) => {
     return selected ? selected.value : null
   }
 
+  const e_validator = emailValidator(email)
+  const c_validator = cpfValidator(cpf)
+
+  if (e_validator.isValid == false) {
+    $('.error-msg').text(e_validator.msg).show()
+    $('#submit-button').attr('disabled', false)
+    return
+  }
+
+  if (c_validator.isValid == false) {
+    $('.error-msg').text(c_validator.msg).show()
+    $('#submit-button').attr('disabled', false)
+    return
+  }
+
   //O método some() verifica se pelo menos um elemento do array satisfaz uma determinada condição.
   const has_falsy_value = [
     nome,
@@ -45,7 +62,7 @@ submitButton.addEventListener('click', async (e) => {
   ].some((item) => !item)
 
   if (has_falsy_value) {
-    alert('Todos os campos são obrigatório')
+    $('.error-msg').text('Todos os campos são obrigatórios').show()
     $('#submit-button').attr('disabled', false)
     return
   } else {
@@ -63,10 +80,6 @@ submitButton.addEventListener('click', async (e) => {
     await cadastro(funcionario)
   }
 })
-
-function clearFields() {
-  $('#main-form').trigger('reset')
-}
 
 async function cadastro(funcionario) {
   try {
@@ -88,7 +101,8 @@ async function cadastro(funcionario) {
     console.error(error)
     alert(`Ocorreu um erro ao tentar acessar o servidor: ${error}`)
   } finally {
-    clearFields()
+    $('.error-msg').hide()
+    $('#main-form').trigger('reset')
     $('#submit-button').attr('disabled', false)
   }
 }
