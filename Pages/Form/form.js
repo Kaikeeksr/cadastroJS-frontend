@@ -67,14 +67,14 @@ submitButton.addEventListener('click', async (e) => {
     return
   } else {
     const funcionario = {
-      employee_id: null,
-      employee_name: nome,
-      employee_cpf: removeSpecialChar(cpf),
-      employee_email: email,
-      employee_tel: removeSpecialChar(tel),
-      employee_departament: setor,
-      employee_gender: selectedGender(),
-      employee_wage: removeSpecialChar(pagamento),
+      e_id: null,
+      e_name: nome,
+      e_cpf: removeSpecialChar(cpf),
+      e_email: email,
+      e_tel: removeSpecialChar(tel),
+      e_departament: setor,
+      e_gender: selectedGender(),
+      e_wage: removeSpecialChar(pagamento),
     }
     console.log(funcionario)
     await cadastro(funcionario)

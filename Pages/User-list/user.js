@@ -13,14 +13,14 @@ fetchEmployees().then(function (employees) {
   for (let employee of employees) {
     out += `
         <tr id="linha-${employee.employee_id}">
-          <td class='coluna_id'>${employee.employee_id}</td>
-          <td class='coluna_nome'>${employee.employee_name}</td>
-          <td class='coluna_email'>${employee.employee_email}</td>
-          <td class='coluna_cpf'>${employee.employee_cpf}</td>
-          <td class='coluna_tel'>${employee.employee_tel}</td>
-          <td class='coluna_setor'>${employee.employee_departament}</td>
-          <td class='coluna_salario'>${employee.employee_wage}</td>
-          <td class='coluna_genero'>${employee.employee_gender}</td>
+          <td class='coluna_id'>${employee.e_id}</td>
+          <td class='coluna_nome'>${employee.e_name}</td>
+          <td class='coluna_email'>${employee.e_email}</td>
+          <td class='coluna_cpf'>${employee.e_cpf}</td>
+          <td class='coluna_tel'>${employee.e_tel}</td>
+          <td class='coluna_setor'>${employee.e_departament}</td>
+          <td class='coluna_salario'>${employee.e_wage}</td>
+          <td class='coluna_genero'>${employee.e_gender}</td>
           <td class='coluna_dt_cadastro'>${employee.created_at}</td>
         </tr>  
     `
@@ -35,5 +35,10 @@ fetchEmployees().then(function (employees) {
 
   $('.coluna_tel').each(function () {
     $(this).mask('(00) 0000-0000')
+  })
+
+  $('.coluna_setor').each(function () {
+    var valor = $(this).val()
+    $(this).val(valor.toUpperCase())
   })
 })
