@@ -20,28 +20,43 @@ h1 {
 
 .content-table {
   border-collapse: collapse;
-  margin: 25px 0;
   font-size: 1em;
-  min-width: 400px;
+  width: 90%;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   margin: 0 auto;
 }
 
-.content-table thead tr {
+.content-table thead {
   background-color: #6c63ff;
   color: #fff;
   text-align: left;
   font-weight: bold;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .content-table th,
 .content-table td {
   padding: 12px 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content-table tbody {
+  display: block;
+  max-height: 616px;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 .content-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* Garante que as colunas tenham largura fixa */
   border-bottom: 1px solid #dddddddd;
 }
 
@@ -71,4 +86,16 @@ h1 {
 
 .btn:hover {
   box-shadow: 0 1px 4px #e6e6fa;
+}
+
+.btn_container {
+  display: flex;
+  gap: 5px;
+}
+
+.btn_editar,
+.btn_excluir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
