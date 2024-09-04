@@ -86,6 +86,27 @@ async function deleteEmployee(id, name) {
   }
 }
 
-function editEmployee(id) {
-  console.log(id)
+async function editEmployee(id) {
+  try {
+    const response = await fetch(`http://localhost:3333/user/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error('Erro ao buscar os dados do funcionário')
+    }
+
+    const data = await response.json()
+
+    //armazenando os dados no localStorage
+    localStorage.setItem('employeeData', JSON.stringify(data))
+
+    window.location.href = '../user-update/upd_form.html'
+  } catch (error) {
+    console.error(error)
+    alert(`Ocorreu um erro ao tentar acessar o servidor: ${error}`)
+  }
 }
