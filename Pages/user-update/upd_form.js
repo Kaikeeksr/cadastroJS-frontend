@@ -140,5 +140,7 @@ async function update(funcionario) {
     $('.error-msg').hide()
     $('#main-form').trigger('reset')
     $('#submit-button').attr('disabled', false)
+    localStorage.setItem('editedEmployeeID', JSON.stringify(employeeData.e_id))
+    window.location.href = '../User-list/user-list.html'
   }
 }

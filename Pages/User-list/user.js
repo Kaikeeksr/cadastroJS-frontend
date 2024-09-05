@@ -3,6 +3,8 @@ const fetchEmployees = async () => {
   return response.json()
 }
 
+const edited_id = JSON.parse(localStorage.getItem('editedEmployeeID'))
+
 fetchEmployees().then(function (employees) {
   window.addEventListener('DOMContentLoaded', () => {
     loader.classList.add('loader-hidden')
@@ -54,6 +56,17 @@ fetchEmployees().then(function (employees) {
     var valor = $(this).val()
     $(this).val(valor.toUpperCase())
   })
+
+  if (edited_id) {
+    const editedRow = $(`#linha-${edited_id}`)
+    editedRow.addClass('blink')
+
+    setTimeout(() => {
+      editedRow.removeClass('blink')
+    }, 10000) // 10 segundos
+
+    localStorage.clear()
+  }
 })
 
 async function deleteEmployee(id, name) {

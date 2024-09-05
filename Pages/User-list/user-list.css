@@ -99,3 +99,20 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
+/* DESTACANDO A LINHA RECÉM EDITADA */
+@keyframes blink {
+  0% {
+    background-color: #9ef1b3;
+  }
+  50% {
+    background-color: #defde5;
+  }
+  100% {
+    background-color: #9ef1b3;
+  }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
